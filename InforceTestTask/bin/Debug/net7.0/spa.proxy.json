@@ -1,0 +1,8 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:44412",
+"LaunchCommand": "npm start",
+"WorkingDirectory": "D:\\CSharpProject\\InforceTestTask\\InforceTestTask\\ClientApp\\",
+"MaxTimeoutInSeconds": "120"
+}
+}

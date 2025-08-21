@@ -1,0 +1,11 @@
+<div *ngIf="info">
+  <h2>Short URL Info</h2>
+  <p><strong>Long URL:</strong> {{ info.longUrl }}</p>
+  <p>
+    <strong>Short URL:</strong>
+    <a [href]="info.shortUrl" target="_blank">{{ info.shortUrl }}</a>
+  </p>
+  <p><strong>Code:</strong> {{ info.code }}</p>
+  <p><strong>Created By:</strong> {{ info.createdBy }}</p>
+  <p><strong>Created Date:</strong> {{ info.createdDate }}</p>
+</div>

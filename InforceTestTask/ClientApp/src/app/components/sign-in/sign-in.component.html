@@ -1,0 +1,51 @@
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">
+          {{ isLogin ? 'Login' : 'Register' }}
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="message" class="alert alert-info">{{ message }}</div>
+        <form *ngIf="!isLogin" (submit)="onRegister($event)">
+          <div class="mb-3">
+            <label for="username" class="form-label">User name</label>
+            <input type="text" class="form-control" id="username" [(ngModel)]="registerData.userName" name="userName" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="registerData.email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" [(ngModel)]="registerData.password" name="password" required>
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="registerData.confirmPassword" name="confirmPassword" required>
+          </div>
+          <button type="submit" class="btn btn-success">Register</button>
+          <div class="d-flex justify-content-end mt-2">
+            <a href="#" (click)="showLogin($event)">Already registered?</a>
+          </div>
+        </form>
+        <form *ngIf="isLogin" (submit)="onLogin($event)">
+          <div class="mb-3">
+            <label for="loginUsername" class="form-label">User name</label>
+            <input type="text" class="form-control" id="loginUsername" [(ngModel)]="loginData.userName" name="loginUserName" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="loginPassword" [(ngModel)]="loginData.password" name="loginPassword" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <div class="d-flex justify-content-end mt-2">
+            <a href="#" (click)="showRegister($event)">Don't have an account?</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

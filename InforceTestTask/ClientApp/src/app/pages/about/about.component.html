@@ -1,0 +1,42 @@
+<h1>About</h1>
+<p>This is my Test Task for joining Inforce Company</p>
+
+<ul>
+  <li><strong>About:</strong> contains information about my algorithm for short URLs.</li>
+  <li><strong>IUrlShortenerService</strong> Interface with advertisement my public method in UrlShortenerService with Injection.</li>
+  <li>
+    <strong>UrlShortenerService</strong> Class with implementation of IUrlShortenerService.
+    It contains public methods what were injected from Interface and one private - Encode() with Base64 encode algorithm.
+    I also can use method from Convert - Convert.ToBase64String, but for this Task I wrote this algorithm.
+    <p>
+      In CreateShortUrlAsync() method I use Encode() to encode long URL and create short URL.
+      Because all URLs must be unique, I check if the short URL already exists in the database.
+      If it does, I generate a new short URL by appending a random number to the encoded string until I find a unique one.
+      After that, I save the new short URL to the database and return it.
+    </p>
+    <p>
+      To make short links work correctly I created GetShortUrlInfoAsync() method.
+      It readdresses the short URL to the original long URL.
+    </p>
+    <p>
+      I have also implemented GetShortUrlInfoAsync() method to retrieve information about a short URL.
+    </p>
+    <p>
+      Then I created a method to remove short URL from the database - DeleteShortUrlAsync().
+    </p>
+    <p>
+      In the end I added a method to show information about short URL - GetShortUrlInfoAsync().
+    </p>
+    <p>
+      Of course, I changed the middleware to add this DIs to the pipeline.
+    </p>
+  </li>
+  <li>
+    <strong>ShortUrlsController</strong> Class with methods to handle HTTP requests for short URLs.
+    It includes endpoints for creating, retrieving, deleting, and getting information about short URLs.
+  </li>
+  <li>
+    <strong>Unit Tests: </strong> I also added some unit tests for the UrlShortenerService and other services.
+    All tests are located in the <code>TestTaskTests</code> project and pasted successfully.
+  </li>
+</ul>

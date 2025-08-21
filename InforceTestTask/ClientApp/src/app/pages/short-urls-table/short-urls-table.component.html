@@ -1,0 +1,45 @@
+<div class="d-flex align-items-center justify-content-between mb-3">
+  <h1>Short URLs Table</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Long URL</th>
+    <th>Short URL</th>
+    <th>Info</th>
+    <th>Remove</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let url of urls">
+    <td>{{ url.longUrl }}</td>
+    <td>
+      <a [href]="url.shortUrl" target="_blank">{{ url.shortUrl }}</a>
+    </td>
+    <td>
+      <button class="btn btn-info btn-sm" (click)="onInfoClick(url)">Info</button>
+    </td>
+    <td>
+      <button class="btn btn-danger btn-sm" (click)="onRemoveClick(url)">Remove</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="card mt-4" *ngIf="authService.isLoggedIn()">
+  <div class="card-body">
+    <h5 class="card-title">Create Short URL</h5>
+    <div class="mb-3">
+      <label for="longUrlInput" class="form-label">Enter URL</label>
+      <input id="longUrlInput"
+             type="text"
+             class="form-control"
+             [(ngModel)]="longUrl"
+             placeholder="https://example.com" />
+    </div>
+    <button class="btn btn-primary"
+            (click)="onConfirmClick()">
+      Create
+    </button>
+  </div>
+</div>
